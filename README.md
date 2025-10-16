@@ -6,7 +6,6 @@
 ![Language](https://img.shields.io/badge/Made%20With-C%23-178600?style=for-the-badge)
 ![APIs](https://img.shields.io/badge/APIs-WeAreDevs%20%26%20ClubDark-blue?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=for-the-badge)
-![License](https://img.shields.io/badge/License-Legacy-orange?style=for-the-badge)
 
 ---
 
