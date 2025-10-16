@@ -1,6 +1,6 @@
-
 # ⚡ BeastX — Roblox Dual-API Script Executor (Legacy)
 
+![Maintenance](https://img.shields.io/badge/Maintained-No-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Deprecated-red?style=for-the-badge)
 ![Language](https://img.shields.io/badge/Made%20With-C%23-178600?style=for-the-badge)
 ![APIs](https://img.shields.io/badge/APIs-WeAreDevs%20%26%20ClubDark-blue?style=for-the-badge)
