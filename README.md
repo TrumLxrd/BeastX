@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="images/beastx-banner.png" width="640" alt="BeastX Banner"/>
-</p>
+
 
 # ⚡ BeastX — Roblox Dual-API Script Executor (Legacy)
 
