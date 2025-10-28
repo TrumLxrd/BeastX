@@ -1,70 +1,102 @@
-# ⚡ BeastX — Roblox Dual-API Script Executor (Legacy)
+# 🍿 VidPlus.to Module Documentation 🎬
 
-![Maintenance](https://img.shields.io/badge/Maintained-No-blue?style=flat)
-![Status](https://img.shields.io/badge/Status-Deprecated-red?style=flat)
-![Language](https://img.shields.io/badge/Made%20With-C%23-178600?style=flat)
-![APIs](https://img.shields.io/badge/APIs-WeAreDevs%20%26%20ClubDark-blue?style=flat)
-![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=flat)
-
-
-
-> 🧩 **BeastX — The first Roblox script executor to combine WeAreDevs and Club Dark APIs for flexible and fast Lua script execution.**
-
-Built using **C#**, BeastX was a groundbreaking dual-API executor with a user-friendly interface for injecting and running Roblox scripts.
+![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Language](https://img.shields.io/badge/language-JavaScript-yellowgreen)
+![Quality](https://img.shields.io/badge/quality-1080p-red)
+![StreamType](https://img.shields.io/badge/stream_HLS-orange)
+![Subtitles](https://img.shields.io/badge/subtitles-yes-brightgreen)
 
 ---
 
-## ⚠️ Warning: Outdated & Not Functional
+## 🚀 Overview
 
-Due to the official Roblox anti-cheat system, **Byfron**, released in 2024, BeastX is now **outdated and no longer works**. Byfron's advanced detection and protection mechanisms have rendered legacy executors like BeastX ineffective. This project is retained for **historical, educational, and research purposes only**.
+The **VidPlus.to Sora module** integrates TMDB (The Movie Database) API 🔎 for discovering movie/TV info and the VidPlus.to streaming platform for fast playback. It exposes handy functions to:
+- Search content 🔍
+- Extract metadata 📝
+- List episodes 📺
+- Resolve streaming URLs 🎥
 
----
-
-## 🚀 Features
-
-- 🧠 Dual API support (WeAreDevs + Club Dark)  
-- 💻 Built-in editor for Lua scripts  
-- ⚙️ One-click inject & execute  
-- 🎨 Lightweight and straightforward interface  
-- ⚡ Fast injection and script execution  
+Designed for JavaScript apps (like Sora modules), it supports both movies and TV shows seamlessly!
 
 ---
 
-## 🧩 How to Use BeastX (Legacy)
+## ⚙️ Quick Setup
 
-1. Launch BeastX.  
-2. Paste your Roblox script into the editor.  
-3. Choose the injection API:  
-   - 🔹 *WeAreDevs API* for stability  
-   - 🔸 *Club Dark API* for broad compatibility  
-4. Click **Inject** to attach to Roblox.  
-5. Click **Execute** to run your script.
+- **TMDB API Key**: Replace the built-in key with your own from [TMDB Settings](https://www.themoviedb.org/settings/api) 🔑
+- **Script Hosting**: Upload your script (`vidplus.js` or optimized) to a web server/cloud ☁️, and set the `scriptUrl` in your config JSON.
+- **JSON Descriptor**: Use `vidplus.json` to declare name, icons, API URLs, HLS/1080p support, subtitles, and async JS usage.
 
 ---
 
-## ⚙️ Technical Details
+## 🔗 External APIs & Files
 
-- Language: C# (.NET Framework)  
-- APIs: WeAreDevs API, Club Dark API  
-- Platform: Windows  
-- Status: Legacy, archival only  
-
----
-
-## 💬 Contributors & Testers
-
-- 👨‍💻 **Cojored** — [GitHub Profile](https://github.com/cojored)  
-- 🧩 **Loze**  
-- ⚡ **thebeast1089**  
+- **TMDB API**: For movie/series info, images, and episode data 🎦
+- **VidPlus.to**: For streaming embeds using TMDB IDs 🍿
+- **Global Extractor (optional)**: Enables advanced `.m3u8`/`.mp4` extraction (optimized only) 🧰
 
 ---
 
-## 🏁 Disclaimer
+## 🧑‍💻 Core Constants
 
-BeastX is no longer maintained and can't bypass Roblox's current anti-cheat. Use responsibly and respect Roblox's Terms of Service. This repository is for educational insight only.
+| Constant          | Value/Use Example                   |
+|-------------------|-------------------------------------|
+| `TMDBAPIKEY`      | e.g. `d9956abacedb5b43a16cc4864b26d451`  |
+| `TMDBBASEURL`     | `https://api.themoviedb.org/3`      |
+| `TMDBIMAGEBASE`   | `https://image.tmdb.org/t/p/w500`   |
+| `VIDPLUSBASEURL`  | `https://player.vidplus.to/embed`   |
 
 ---
 
-<p align="center">
-  💻 Crafted in C# and powered by the Roblox scripting community ❤️  
-</p>
+## 🏗️ Main Functions
+
+| Function                | Purpose/Description                                                                                                                                   |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `searchResults()`       | TMDB search by keyword – gets up to 15–20 results (title, image, VidPlus URL) 🔍                                                                      |
+| `extractDetails()`      | Loads full metadata like synopsis, release date, runtime, or season info 📝                                                                            |
+| `extractEpisodes()`     | Lists all episodes for TV, or a single entry for movies; builds VidPlus embed URLs for each episode 🎞                                               |
+| `extractStreamUrl()`    | Validates and (if needed) rewrites VidPlus embed links for playback; uses extractor lib for raw streams when available ⚡                             |
+
+---
+
+## 🛣️ Usage Flow
+
+1. **Search**: User provides keyword → TMDB search → gets VidPlus links 🚦
+2. **Details**: Selecting a title loads summary, year, poster, runtime, etc. 📖
+3. **Episodes**: For TV, all seasons & episodes are listed; for movies, just one video 🎬
+4. **Stream!**: Final streaming URL is passed to the Sora app or player 🔗
+
+---
+
+## 🏆 Key Features & Design
+
+- **Graceful Fallbacks**: Tries local/package extractors, auto-degrades if external lookup (TMDB/season) fails 🤞
+- **Robust Error Handling**: All network actions use try/catch; friendly fallback messages returned if needed 🛡️
+- **Performance Guardrails**: TV extraction capped at 10 seasons/20 episodes if API fails to limit overload 🚦
+- **Modular & Hackable**: Functions are pluggable for Sora modules or custom extractors 🧩
+
+---
+
+## 📝 Example JSON Config (`vidplus.json`)
+
+| Field           | Example Value                         | Description                        |
+|-----------------|--------------------------------------|------------------------------------|
+| `sourceName`    | VidPlus.to                           | Display name                       |
+| `iconUrl`       | https://vidplus.to/favicon.ico        | Logo/icon                          |
+| `author`        | Assistant                            | Module creator                     |
+| `version`       | 1.0.0                                | Module version                     |
+| `language`      | English                              | Default language                   |
+| `streamType`    | HLS                                  | Video protocol                     |
+| `quality`       | 1080p                                | Max default quality                |
+| `baseUrl`       | https://player.vidplus.to            | Embed endpoint                     |
+| `searchBaseUrl` | https://api.themoviedb.org/...       | Search API with TMDB key           |
+| `scriptUrl`     | https://.../vidplus.js               | Loader for the JS extractor        |
+| `asyncJS`       | true                                 | JS loads async                     |
+| `type`          | movies                               | Supported media types              |
+| `softsub`       | true                                 | Soft subtitle support              |
+
+---
+
+## 🌟 Summary
+
+This enhanced module connects TMDB discovery and streaming via VidPlus.to (using Sora integration), with snappy search, episode metadata, error resilience, and streaming extraction. Adapt, extend, and enjoy seamless streaming! 🎥🍿✨
